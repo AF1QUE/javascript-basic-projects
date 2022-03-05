@@ -1,4 +1,5 @@
-aconst menu = [
+//  items
+const menu = [
   {
     id: 1,
     title: "buttermilk pancakes",
@@ -72,3 +73,35 @@ aconst menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+// DOM CONETNT LOAD
+
+const sectionCenter = document.querySelector(".section-center");
+const filterBtns = document.querySelectorAll("button");
+
+filterBtns.forEach((filterBtn) => {
+  console.dir(filterBtn);
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  initMenu(menu);
+});
+
+function initMenu(menuItems) {
+  let renderedItems = menuItems.map((item) => {
+    return `<article class="menu-item">
+        <img src="${item.img}" alt="menu item" class="photo" />
+        <div class="item-info">
+          <header>
+            <h4>${item.title}</h4>
+            <h4 class="price">$${item.price}</h4>
+          </header>
+          <p class="item-text">
+           ${item.desc}
+          </p>
+        </div>
+      </article>`;
+  });
+  renderedItems = renderedItems.join(" ");
+  sectionCenter.innerHTML = renderedItems;
+}

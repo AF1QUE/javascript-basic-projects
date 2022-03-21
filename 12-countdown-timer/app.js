@@ -21,3 +21,13 @@ const weekdays = [
   "Friday",
   "Saturday",
 ];
+
+const giveawayText = document.querySelector(".giveaway");
+
+const futureDate = new Date(1995, 11, 17, 3, 24, 0);
+
+let r = futureDate.getMilliseconds();
+
+let seconds = Math.floor(Date.now() / 1000);
+
+console.log(seconds);
